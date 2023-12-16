@@ -88,4 +88,18 @@ export class AppComponent implements OnInit {
     this.educationList = data
   }
 
+  imagePreview: string | ArrayBuffer | null = null;
+
+  onFileChange(event: any) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length) {
+      const file = event.target.files[0];
+      reader.onload = () => {
+        this.imagePreview = reader.result as string;
+      };
+      this.studentObj.picture = file.name
+      reader.readAsDataURL(file);
+    }
+  }
+
 }

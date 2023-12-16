@@ -2,7 +2,7 @@
 <section class="mt-3">
   <div class="container-fluid">
     <div class="card">
-      <div class="card-title">
+      <div class="card-title text-center">
         <h5>Student Form</h5>
       </div>
       <div class="card-body">
@@ -39,9 +39,11 @@
                 </div>
                 <div class="col-6">
                   <label for="picture" class="form-label">Profile Picture</label>
-                  <input type="file" class="form-control" id="picture" name="picture" [(ngModel)]="studentObj.picture">
+                  <input type="file" class="form-control" id="picture" name="picture" (change)="onFileChange($event)">
+                  <img *ngIf="imagePreview" [src]="imagePreview" class="img-thumbnail mt-2" alt="Preview">
                 </div>
               </div>
+              
               <div class="row mb-3">
                 <div class="col-4">
                   <label for="cars">Select Country:</label>

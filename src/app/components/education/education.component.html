@@ -22,7 +22,7 @@
     </div>
     <button class="btn btn-success" type="button" (click)="submitEducation()">Save Eduction</button>
   </div>
-  <table class="table">
+  <table class="table table-responsive">
     <thead>
       <tr>
         <th scope="col">college name</th>
@@ -33,16 +33,22 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let edu of educationList;let i=index">
-        <td>{{edu.collegeName}}</td>
-        <td>{{edu.stream}}</td>
-        <td>{{edu.passYear}}</td>
-        <td>{{edu.marks}}</td>
+      <tr *ngFor="let edu of educationList; let i = index">
+        <td>{{ edu.collegeName }}</td>
+        <td>{{ edu.stream }}</td>
+        <td>{{ edu.passYear }}</td>
+        <td>{{ edu.marks }}</td>
         <td>
           <button class="btn btn-danger" (click)="deleteEdu(i)">Delete</button>
         </td>
       </tr>
-
+      <tr *ngIf="educationList.length == 0">
+        <td class="text-center" colspan="5">
+          <h5>No Records Found..</h5>
+        </td>
+      </tr>
     </tbody>
   </table>
+
+
 </div>
